@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우면동 성당 전례 해설 가이드</title>
+    <style>
+        :root { --main-blue: #2980b9; --point-red: #e74c3c; --bg-gray: #f8f9fa; }
+        body { font-family: 'Apple SD Gothic Neo', sans-serif; line-height: 1.7; color: #333; max-width: 900px; margin: 0 auto; padding: 15px; background-color: #e9ecef; }
+        .card { background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h2 { color: var(--main-blue); border-bottom: 2px solid var(--main-blue); padding-bottom: 8px; font-size: 1.3em; }
+        
+        /* 체크리스트 스타일 */
+        .checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.9em; }
+        .check-item { display: flex; align-items: center; }
+        
+        /* 입력 섹션 */
+        .input-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        input { padding: 10px; border: 1px solid #ddd; border-radius: 6px; width: 100%; box-sizing: border-box; font-size: 16px; }
+        
+        /* 해설 본문 스타일 */
+        .script-box { border-left: 5px solid var(--main-blue); padding-left: 15px; margin: 20px 0; background: #fdfdfd; }
+        .role-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 5px; }
+        .role-h { background: #d1ecf1; color: #0c5460; } /* 해설자 */
+        .role-s { background: #f8d7da; color: #721c24; } /* 신부님 */
+        .role-p { background: #e2e3e5; color: #383d41; } /* 신자 */
+        
+        .highlight { color: var(--point-red); font-weight: bold; text-decoration: underline; }
+        .action-note { color: #666; font-size: 0.85em; font-style: italic; display: block; margin-top: 5px; background: #eee; padding: 2px 5px; }
+        
+        /* 전광판 강조 */
+        .display-board { background: #333; color: #ffeb3b; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-weight: bold; }
+        
+        @media (max-width: 600px) { .checklist { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<header class="header-card"></header>
+    <div class="card">
+        <h2> 우면동 성당 청년전례부 <br>해설 지침서 </h2>
+    </div>
+<div class="card">
+    <h2>✅ 미사 30분 전 체크리스트</h2>
+    <div class="checklist" id="checkList">
+        <label class="check-item"><input type="checkbox"> 1. 미사 전/후 기도 확인</label>
+        <label class="check-item"><input type="checkbox"> 2. 입당/봉헌/성체/파견 성가</label>
+        <label class="check-item"><input type="checkbox"> 3. 미사곡 번호 확인(포스트잇)</label>
+        <label class="check-item"><input type="checkbox"> 4. 2차 헌금 유무(주보 뒷면)</label>
+        <label class="check-item"><input type="checkbox"> 5. 독서/복음 쪽수 확인</label>
+        <label class="check-item"><input type="checkbox"> 6. 오늘 주일 명칭 확인</label>
+        <label class="check-item"><input type="checkbox"> 7. 리모컨/마이크 작동 확인</label>
+        <label class="check-item"><input type="checkbox"> 8. 전례복/미사포 착용</label>
+        <label class="check-item"><input type="checkbox"> 9. 독서/반주자 도착 확인</label>
+        <label class="check-item"><input type="checkbox"> 10. 성가 연습 유무 확인</label>
+    </div>
+</div>
+
+<div class="card">
+    <h2>✍️ 오늘 전례 정보 입력</h2>
+    <div class="input-grid">
+        <input type="text" id="in_sunday" placeholder="무슨 주일? (예: 연중 제2주일)">
+        <input type="text" id="in_page" placeholder="매일미사 쪽수 (예: 100)">
+        <input type="text" id="in_song_start" placeholder="입당 성가 (예: 228)">
+        <input type="text" id="in_song_offer1" placeholder="봉헌 성가1 (성가번호 및 성가이름)">
+        <input type="text" id="in_song_offer2" placeholder="봉헌 성가2 (성가번호 및 성가이름)">
+        <input type="text" id="in_song_comm1" placeholder="성체 성가1 (성가번호 및 성가이름)">
+        <input type="text" id="in_song_comm2" placeholder="성체 성가2 (성가번호 및 성가이름)">
+        <input type="text" id="in_song_end" placeholder="파견 성가">
+        <input type="text" id="in_hwanho" placeholder="복음환호송 구절">
+    </div>
+</div>
+
+<div class="card">
+    <h2>📖 전례 해설 실시간 대본</h2>
+
+    <div class="script-box">
+        <span class="action-note">5시 50분: 공지 및 묵상 안내</span>
+        <span class="role-badge role-h">@</span> "오늘은 교구 미납금 및 본당 차입금을 갚기 위한 2차 헌금이 있습니다."<br>
+        <span class="role-badge role-h">@</span> "(찬미예수님) 오늘의 독서와 복음을 읽고 묵상하겠습니다. 매일미사 <span class="highlight out_page">___</span>쪽을 펴주시기 바랍니다."
+    </div>
+
+    <div class="script-box">
+        <span class="action-note">5시 58분: 삼종기도 (신부님 준비 확인 후)</span>
+        <span class="role-badge role-h">@</span> "일어서십시오. 우면동 성당을 위한 기도와 삼종 기도를 좌우교송으로 바치겠습니다."<br>
+        <span class="role-badge role-h">@</span> "성부와 성자와 성령의 이름으로, 아멘. 주님의 천사가 마리아께 아뢰니..."
+    </div>
+
+    <div class="script-box">
+        <span class="action-note">시작예식 (신부님 입장 시) | 전광판: <span class="display-board">입당성가</span></span>
+        <span class="role-badge role-h">@</span> "오늘은 <span class="highlight out_sunday">_______</span> 입니다. 입당 성가 <span class="highlight out_song_start">___</span>번을 부르겠습니다."
+    </div>
+
+    <div class="script-box">
+        <span class="action-note">말씀전례 | 전광판: <span class="display-board">395</span> (2독서자 내려올 때)</span>
+        <span class="role-badge role-h">@</span> "모두 일어서십시오. 복음환호송을 하시겠습니다."<br>
+        <span class="role-badge role-h">@</span> "<span class="highlight out_hwanho">____________________</span>"
+    </div>
+
+    <div class="script-box">
+        <span class="action-note">봉헌 | 전광판: <span class="display-board">봉헌성가</span></span>
+        <span class="role-badge role-h">@</span> "앉으십시오. 봉헌성가로 청년 성가 <span class="highlight out_song_offer1">___</span>을 부르겠습니다."
+    </div>
+
+    <div class="script-box">
+        <span class="action-note">봉헌 | 전광판: <span class="display-board">봉헌성가</span></span>
+        <span class="role-badge role-h">@</span> "이어지는 성가로는  <span class="highlight out_song_offer2">___</span>을 부르겠습니다."
+    </div>
+
+    <div class="script-box">
+        <span class="action-note">영성체 | 복사 타종 직후 | 전광판: <span class="display-board">성체성가</span></span>
+        <span class="role-badge role-h">@</span> "앉으십시오. 성체성가로 청년 성가 <span class="highlight out_song_comm1">___</span>을 부르겠습니다."
+    </div>
+     
+    <div class="script-box">
+        <span class="action-note">영성체 | 복사 타종 직후 | 전광판: <span class="display-board">성체성가</span></span>
+        <span class="role-badge role-h">@</span> "이어지는 성가로는 <span class="highlight out_song_comm2">___</span>을 부르겠습니다."
+    </div>
+
+    <div class="script-box">
+        <span class="action-note">파견 | 전광판: <span class="display-board">파견성가</span></span>
+        <span class="role-badge role-h">@</span> "파견성가로 청년 성가 <span class="highlight out_song_end">___</span>번을 부르겠습니다."
+    </div>
+
+    <div class="script-box">
+        <span class="action-note">미사 후 (단상 멘트 참고)</span>
+        <span class="role-badge role-h">@</span> "미사 후 기도로 2027년 세계청년대회를 위한 기도를 다함께 바치겠습니다. ... 이상으로 <span class="highlight out_sunday">_______</span> 미사가 끝났습니다. 안녕히 가십시오."
+    </div>
+</div>
+
+<script>
+    // 입력 연동 스크립트
+    const mappings = {
+        'in_sunday': 'out_sunday',
+        'in_page': 'out_page',
+        'in_song_start': 'out_song_start',
+        'in_song_offer': 'out_song_offer',
+        'in_song_comm': 'out_song_comm',
+        'in_song_end': 'out_song_end',
+        'in_hwanho': 'out_hwanho'
+    };
+
+    Object.keys(mappings).forEach(inputId => {
+        document.getElementById(inputId).addEventListener('input', function() {
+            const targets = document.querySelectorAll('.' + mappings[inputId]);
+            targets.forEach(el => el.innerText = this.value || "___");
+        });
+    });
+</script>
+
+</body>
+</html>
